@@ -1,0 +1,140 @@
+.loader {
+  position: fixed;
+  z-index: 9999;
+  background-color: #7acec3;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coffee_cup {
+  position: absolute;
+  top: 50%;
+  margin-left: -10px;
+  width: 20px;
+  height: 24px;
+  border: 1px rgba(255,255,255,1) solid;
+  border-radius: 0px 0px 5px 5px;
+  position: relative;
+  margin: 36px auto;
+}
+.coffee_cup:after, .coffee_cup:before{
+  position: absolute;
+  content: "";
+}
+.coffee_cup:after{
+  width: 5px;
+  height: 12px;
+  border: 1px #fff solid;
+  border-left: none;
+  border-radius: 0px 20px 20px 0px;
+  left: 20px;
+}
+.coffee_cup:before{
+  width: 1px;
+  height: 6px;
+  background-color: rgba(255,255,255,1);
+  top: -10px;
+  left: 4px;
+  box-shadow: 5px 0px 0px 0px rgba(255,255,255,1),
+  5px -5px 0px 0px rgba(255,255,255,1),
+  10px 0px 0px 0px rgba(255,255,255,1);
+  -webkit-animation: steam 1s linear infinite alternate;
+  -moz-animation: steam 1s linear infinite alternate;
+  animation: steam 1s linear infinite alternate;
+}
+
+@-webkit-keyframes steam{
+  0%{height: 0px;}
+  100%{height: 6px;}
+}
+@-moz-keyframes steam{
+  0%{height: 0px}
+  100%{height: 6px;}
+}
+@keyframes steam{
+  0%{height: 0px}
+  100%{height: 6px;}
+}
+
+//
+//.loading {
+//  li {
+//    border-radius: 200%;
+//    display: inline-block;
+//    height: $ballSize; width: $ballSize;
+//    background: green;
+//    margin: auto 5px;
+//    @for $i from 1 through 3 {
+//      &:nth-child(#{$i}) {
+//        @include animation(load 1s infinite);
+//        @include animation-delay(0.1s * $i );
+//      }
+//    }
+//  }
+//}
+.loading-circles {
+  position: absolute;
+  width: 42px;
+  height: 15px;
+}
+.circle {
+  background: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 5px;
+  position: absolute;
+  left: -25px;
+  bottom: 0;
+  &:nth-child(1) {
+    left: -25px;
+  }
+  &:nth-child(2) {
+    left: 0px;
+  }
+  &:nth-child(3) {
+    left: 25px;
+  }
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) {
+      animation: circle 1.6s infinite;
+      animation-delay: (0.1s * $i);
+    }
+  }
+}
+@keyframes circle {
+    0% {
+      transform: scale(1) translateY(0px);
+      height: 14px;
+    }
+    20% {
+      transform: scale(1) translateY(0px);
+      height: 10px;
+    }
+    40% {
+     transform: scale(1.1) translateY(-15px);
+      height: 14px;
+    }
+    70% {
+      transform: scale(1) translateY(0px);
+    }
+}
+
+
+
+//@include keyframes(load) {
+//  0% {
+//    @include transform(scale(1) translateY(0px));
+//  }
+//  50% {
+//    @include transform(scale(1.5) translateY(-25px));
+//  }
+//  100% {
+//    @include transform(scale(1) translateY(0px));
+//  }
+//}
