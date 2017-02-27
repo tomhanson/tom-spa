@@ -1,0 +1,23 @@
+.project__info {
+  z-index: 3;
+  position: relative;
+}
+.project__title {
+  @include addREM(margin-bottom, 10);
+  color: $second-font-color;
+}
+.project__headline {
+  @include addREM(margin-bottom, 10);
+  color: $second-font-color;
+  max-width: 75%;
+}
+.project__button {
+  cursor: pointer;
+  color: $second-font-color;
+}
+.project__icon {
+  @include addREM(margin-right, 5);
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+}

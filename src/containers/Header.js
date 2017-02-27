@@ -10,6 +10,7 @@ class Header extends Component {
         };
         return (
             <header className="individual" style={style}>
+                test
                 <h1 className="secondary-color">{ this.props.title }</h1>
                 <h3 className="secondary-color">{ this.props.headline }</h3>
             </header>

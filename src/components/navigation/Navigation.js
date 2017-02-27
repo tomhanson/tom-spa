@@ -25,7 +25,6 @@ class Navigation extends Component {
                                                 :
                                                 <Link to={ `/${item.slug}` }>{ item.name }</Link>
                                         }
-
                                     </li>
                                 )
 

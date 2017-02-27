@@ -21,7 +21,7 @@ const Routes = (
                 <Route path="projects" component={ projects } />
                 <Route path="contact" component={ Contact } />
                 <Route path="posts" component={ page } />
-                <Route path="projects/:postID" component={ page } />
+                <Route path="projects/:postID" component={ projects } />
                 <Route path="*" component={ notFound } />
             </Route>
         </Router>

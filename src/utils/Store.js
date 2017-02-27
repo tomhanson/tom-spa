@@ -12,11 +12,6 @@ import rootSaga from './sagas';
 
 import rootReducer from '../reducers/index';
 
-// const client = axios.create({ //all axios can be used, shown in axios documentation
-//     baseURL:'http://admin.learningjs.co.uk/wp-json/wp/v2/',
-//     responseType: 'json'
-// });
-
 const defaultState = {
     posts: [],
     loading: true,
@@ -24,7 +19,8 @@ const defaultState = {
     navigation: {
         items: [],
         open: false
-    }
+    },
+    globalData: {}
 };
 
 //router middleware

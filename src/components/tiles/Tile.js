@@ -1,36 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router';
 
-// import img from '../../assets/img/Untitled-1.jpg';
+import IconArrowRight from '../icons/IconArrowRight';
 
-function Tile(props) {
-    // let style;
-    // if(props.item.better_featured_image) {
-    //     style = {
-    //         backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1)), url('${ props.item.better_featured_image.media_details.sizes.thumbnail.source_url }')`
-    //     }
-    // } else {
-    //     style= {
-    //         backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1)), url(${ img })`
-    //     };
-    // }
-    console.log(props.item);
+import deafultImg from '../../assets/img/Untitled-1.jpg';
+
+const Tile = function(props) {
+    let style;
+    if(props.item.better_featured_image) {
+        let img = props.item.better_featured_image.media_details.sizes['blog-overall'] || props.item.better_featured_image.media_details.sizes.large || props.item.better_featured_image;
+        // let img = props.item.better_featured_image.media_details.sizes['blog-overall']['source_url'];
+        style = {
+            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${ img['source_url'] }')`
+        }
+    } else {
+        style= {
+            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${ deafultImg })`
+        };
+    }
     return (
-        <article onClick={ props.modal.bind(this, props.item) } role="Project Item" key={ props.i } className={ `tiles__item tile-${ (props.i+1) }` } >
-            <div>
+        <article className={ `project | tiles__item tile-${ (props.i+1) }` } style={ style }>
+            <header className="project__info">
                 <h3 className="project__title">
                     { props.item.title.rendered }
                 </h3>
                 <p className="project__headline">
                     { props.item.acf.headline }
                 </p>
-                <div className="btn btn-tile">
+                <p className="project__button" onClick={ props.modal.bind(this, props.item, props.i) }>
+                    <span className="project__icon">
+                        <IconArrowRight />
+                    </span>
                     View more
-                </div>
-
-            </div>
+                </p>
+            </header>
         </article>
     )
-}
+};
 
 export default Tile;

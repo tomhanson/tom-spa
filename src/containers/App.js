@@ -4,18 +4,19 @@ import connectWithTransitionGroup from 'connect-with-transition-group';
 import * as actionCreators from '../actions/actionCreators';
 
 //css
-// import fonts from '../styles/fonts/fonts.scss';
+import fontAwesome from '../assets/styles/global/font-awesome/fontAwesome.css';
 import css from '../assets/styles/main.css';
 
 import Main from './Main';
 
 function mapStateToProps(state) {
-    const { posts, loading, pages, navigation } = state;
+    const { posts, loading, pages, navigation, globalData } = state;
     return {
         posts,
         loading,
         pages,
-        navigation
+        navigation,
+        globalData
     }
 }
 function mapDispatchToProps(dispatch) {

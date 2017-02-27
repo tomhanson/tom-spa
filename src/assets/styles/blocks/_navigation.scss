@@ -2,13 +2,14 @@ nav.sitewide {
   position: fixed;
   border-width: 0px;
   border-style: solid;
-  border-color: $secondary-color;
+  border-color: $secondary-color-full;
   height: 0;
   width: 100%;
   top: 0;
   left: 0;
   transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
   z-index: 999;
+  font-weight: 300;
   ul {
     position: fixed;
     top: -80px;
@@ -25,6 +26,7 @@ nav.sitewide {
       display: inline-block;
       font-size: calc(10px + 1vw);
       line-height: 80px;
+      color: $second-font-color;
     }
   }
   &.nav-open {
@@ -49,38 +51,44 @@ nav.sitewide {
 
 //hamburger
 .hamburger {
-  width: 60px;
-  height: 35px;
+  @include addREM(padding, 18);
+  width: 96px;
+  height: 62px;
   position: fixed;
-  top: 18px;
-  right: 18px;
+  top: 0;
+  right: 0;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
   cursor: pointer;
+  z-index: 1;
+  &.scrolled {
+    background-color: rgba(#000000, 0.5);
+  }
   span {
     display: block;
     position: absolute;
     height: 4px;
-    width: 100%;
+    width: 60px;
     background: $second-font-color;
     border-radius: 9px;
     opacity: 1;
-    left: 0;
+    left: 18px;
     transform: rotate(0deg);
     transition: .25s ease-in-out;
     &:nth-child(1) {
-      top: 0px;
+      top: 18px;
     }
     &:nth-child(2), &:nth-child(3) {
-      top: 11px;
+      top: 29px;
     }
     &:nth-child(4) {
-      top: 22px;
+      top: 40px;
     }
   }
 }
 .nav-open {
   .hamburger {
+    background-color: rgba(#000000, 0);
     span {
       &:nth-child(1) {
         top: 18px;

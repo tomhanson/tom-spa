@@ -4,3 +4,15 @@
 .secondary-color {
   color: $second-font-color;
 }
+.primary-bg {
+  background-color: $secondary-color-full;
+}
+
+//flex helpers
+.flex {
+  display: flex;
+}
+.center {
+  align-items: center;
+  justify-content: center;
+}

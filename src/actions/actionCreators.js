@@ -20,7 +20,11 @@ export function loaderOn() {
         type: 'LOADER_ON'
     }
 }
-
+export function fetchGlobalData() {
+    return {
+        type: 'FETCH_GLOBAL_DATA'
+    }
+}
 
 //navigation actions
 export function fetchNavigation() {
@@ -31,5 +35,12 @@ export function fetchNavigation() {
 export function toggleNav() {
     return {
         type: 'TOGGLE_NAVIGATION'
+    }
+}
+
+export function shouldFetchData(i) {
+    return  {
+        type: 'FETCH_DATA',
+        i
     }
 }

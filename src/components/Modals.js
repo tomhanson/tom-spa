@@ -2,22 +2,11 @@ import React, { Component } from 'react';
 import { Modal, ModalManager, Effect} from 'react-dynamic-modal';
 
 class Modals extends Component {
+    toggleClose() {
+        ModalManager.close();
+        history.pushState(null, null, `/`)
+    }
     render() {
-        const SlideFromRight = {
-            transition : {
-                property : 'all',
-                duration : 500,
-                timingfunction : 'cubic-bezier(0.25, 0.5, 0.5, 0.9)'
-            },
-            begin : {
-                'transform': 'translateX(35%)',
-                'opacity': '1'
-            },
-            end : {
-                'transform': 'translateX(0)',
-                'opacity': '1'
-            }
-        };
         const styles = {
             overlay: {
                 position: 'fixed',
@@ -25,10 +14,9 @@ class Modals extends Component {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                zIndex: 998,
                 overflow: 'hidden',
                 perspective: 1300,
-                backgroundColor: 'rgba(0, 0, 0, 0.3)'
+                backgroundColor: 'rgba(0, 0, 0, 0.3)',
             },
             content: {
                 position: 'relative',
@@ -41,13 +29,14 @@ class Modals extends Component {
                 outline: 'none',
                 height: '100%',
                 boxShadow: '0',
-                zIndex: 998
+                transition: '0.3s all'
+
             }
         };
         return (
-            <Modal style={ styles } effect={SlideFromRight}>
+            <Modal style={ styles } effect={ Effect.ScaleUp }>
                 <h1>{ this.props.project.title.rendered }</h1>
-                <button onClick={ModalManager.close}>Close Modal</button>
+                <button onClick={ this.toggleClose.bind(this) }>Close Modal</button>
             </Modal>
         )
     }

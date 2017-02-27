@@ -3,12 +3,14 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 //reducers
-import posts from './posts';
-import loading from './loading';
-import pages from './pages';
-import navigation from './navigation';
+import posts from './reducer_posts';
+import loading from './reducer_loading';
+import pages from './reducer_pages';
+import navigation from './reducer_navigation';
+import globalData from './reducer_globalData'
 
 const rootReducer = combineReducers(
-    { posts, loading, pages, navigation, routing: routerReducer }
+    //first one is example to visualise it
+    { posts: posts, loading, pages, navigation, globalData, routing: routerReducer }
 );
 export default rootReducer;
