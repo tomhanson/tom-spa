@@ -1,6 +1,6 @@
 import React from 'react';
 
-import IconArrowRight from '../icons/IconArrowRight';
+import IconArrow from '../icons/IconArrow';
 
 import deafultImg from '../../assets/img/Untitled-1.jpg';
 
@@ -18,17 +18,17 @@ const Tile = function(props) {
         };
     }
     return (
-        <article className={ `project | tiles__item tile-${ (props.i+1) }` } style={ style }>
-            <header className="project__info">
-                <h3 className="project__title">
+        <article className={ `project-tile | tiles__item tile-${ (props.i+1) } color-bg-${ (props.i+1) }` } style={ style }  onClick={ props.modal.bind(this, props.item, props.i) }>
+            <header className="project-tile__info">
+                <h3 className="project-tile__title">
                     { props.item.title.rendered }
                 </h3>
-                <p className="project__headline">
-                    { props.item.acf.headline }
+                <p className="project-tile__headline">
+                    { props.item.acf.project_headline }
                 </p>
-                <p className="project__button" onClick={ props.modal.bind(this, props.item, props.i) }>
-                    <span className="project__icon">
-                        <IconArrowRight />
+                <p className="project-tile__button">
+                    <span className="project-tile__icon">
+                        <IconArrow />
                     </span>
                     View more
                 </p>

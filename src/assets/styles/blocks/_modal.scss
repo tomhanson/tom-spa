@@ -1,0 +1,19 @@
+//rename me when you do this properly
+.modal-open {
+  height: 100%;
+  overflow: hidden;
+}
+.close-btn {
+  font-family: 'Lato', sans-serif;
+  position: fixed;
+  right: 20px;
+  top: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 50px;
+  font-weight: 100;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+}
+

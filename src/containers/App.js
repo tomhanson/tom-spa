@@ -1,18 +1,17 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import connectWithTransitionGroup from 'connect-with-transition-group';
+// import connectWithTransitionGroup from 'connect-with-transition-group';
 import * as actionCreators from '../actions/actionCreators';
 
 //css
-import fontAwesome from '../assets/styles/global/font-awesome/fontAwesome.css';
-import css from '../assets/styles/main.css';
+import '../assets/styles/main.css';
 
 import Main from './Main';
 
 function mapStateToProps(state) {
-    const { posts, loading, pages, navigation, globalData } = state;
+    const { projects, loading, pages, navigation, globalData } = state;
     return {
-        posts,
+        projects,
         loading,
         pages,
         navigation,
@@ -22,6 +21,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(actionCreators, dispatch);
 }
-const app = connectWithTransitionGroup(connect(mapStateToProps, mapDispatchToProps)(Main));
+// const app = connectWithTransitionGroup(connect(mapStateToProps, mapDispatchToProps)(Main));
+const app = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 export default app;

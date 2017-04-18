@@ -11,7 +11,8 @@ class Navigation extends Component {
         return (
             // <!-- Navigation -->
             <nav role="navigation" className={ (this.props.navigation.open) ? "sitewide nav-open" : "sitewide" } onClick={ this.toggleNav.bind(this) }>
-                <Hamburger toggleNav={ this.props.toggleNav.bind(this) } />
+
+                <Hamburger navLoaded={ this.props.navigation.items.length } toggleNav={ this.props.toggleNav.bind(this) } />
                 <ul className="">
                     {
                         (this.props.navigation.items.length) ?

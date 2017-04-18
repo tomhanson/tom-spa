@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class NotFound extends Component {
+    componentDidMount() {
+        this.props.toggleLoader();
+    }
+    componentWillUnmount() {
+        this.props.toggleLoader();
+    }
     render() {
         return (
-            <div>
-                hello world - not found - 404 page!
+            <div className="absolute-center">
+                <h1>Nothing to see here! <Link to="/">Go Home?</Link></h1>
             </div>
         );
     }

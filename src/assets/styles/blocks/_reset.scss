@@ -24,6 +24,9 @@ footer, header, hgroup, menu, nav, section, picture {
 body {
   line-height: 1;
 }
+img {
+  max-width: 100%;
+}
 ol, ul {
   list-style: none;
 }

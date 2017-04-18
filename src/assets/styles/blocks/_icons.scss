@@ -1,5 +1,38 @@
 .icon__arrow {
   //fill: #ff9b6d;
-  fill: #fff;
-  fill-rule: evenodd
+  fill: $second-font-color;
+  fill-rule: evenodd;
+  width: 20px;
+  height: 16px;
+}
+.dark-icon {
+  .icon__arrow {
+    fill: $primary-font-color;
+  }
+}
+.btn__prev {
+  .icon__arrow {
+    transform: rotate(180deg);
+  }
+}
+.btn-direction {
+  .icon__arrow {
+    width: 40px;
+    height: 32px;
+  }
+}
+
+//social icons
+.social-icons {
+  ul {
+    margin-left: -5px;
+  }
+  li {
+    display: inline-block;
+    font-size: calc(0.1rem + 1vw);
+    line-height: calc(0.6rem + 1vw);
+    a {
+      @include addREM(padding, 5);
+    }
+  }
 }

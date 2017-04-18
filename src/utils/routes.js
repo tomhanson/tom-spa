@@ -8,6 +8,7 @@ import store, { history } from './Store';
 import App from '../containers/App';
 import Home from '../containers/Home';
 import projects from '../containers/Projects';
+import project from '../containers/Project';
 import Contact from '../containers/Contact';
 import page from '../containers/Page';
 import notFound from '../containers/NotFound';
@@ -18,10 +19,9 @@ const Routes = (
             <Route path="/" component={ App }>
                 <IndexRoute component={ Home } />
                 <Route path="about" component={ page } />
-                <Route path="projects" component={ projects } />
+                <Route path="my-projects" component={ projects } />
                 <Route path="contact" component={ Contact } />
-                <Route path="posts" component={ page } />
-                <Route path="projects/:postID" component={ projects } />
+                <Route path="projects/:postID" component={ project } />
                 <Route path="*" component={ notFound } />
             </Route>
         </Router>

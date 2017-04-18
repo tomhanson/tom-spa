@@ -11,7 +11,6 @@ class Main extends Component {
         this.props.fetchNavigation();
         this.props.fetchGlobalData();
     }
-
     navScrolled() {
         const nav = document.querySelector('.hamburger');
         if (window.scrollY < 1) {
@@ -49,15 +48,11 @@ class Main extends Component {
             const differenceBetweenR = (colOne[0] >= colTwo[0]) ? colOne[0] - colTwo[0] : colTwo[0] - colOne[0];
             const differenceBetweenG = (colOne[1] >= colTwo[1]) ? colOne[1] - colTwo[1] : colTwo[1] - colOne[1];
             const differenceBetweenB = (colOne[2] >= colTwo[2]) ? colOne[2] - colTwo[2] : colTwo[2] - colOne[2];
-
             //figure out how many pixels scroll for every number change
-
             const distanceOneDifference = Math.floor(scrollDistance / differenceBetweenR);
             const distanceTwoDifference = Math.floor(scrollDistance / differenceBetweenG);
             const distanceThreeDifference = Math.floor(scrollDistance / differenceBetweenB);
-
             //final value worked out by the original number + the total scroll position / how many pixels per colour change(math .ceil so always a full number)
-
             const currentValueR = (colOne[0] - Math.floor(currentScroll / distanceOneDifference) );
             const currentValueG = (colOne[1] + Math.floor(currentScroll / distanceTwoDifference) );
             const currentValueB = (colOne[2] - Math.floor(currentScroll / distanceThreeDifference) );
@@ -70,15 +65,11 @@ class Main extends Component {
             const differenceBetweenR = (colTwo[0] >= colThree[0]) ? colTwo[0] - colThree[0] : colThree[0] - colTwo[0];
             const differenceBetweenG = (colTwo[1] >= colThree[1]) ? colTwo[1] - colThree[1] : colThree[1] - colTwo[1];
             const differenceBetweenB = (colTwo[2] >= colThree[2]) ? colTwo[2] - colThree[2] : colThree[2] - colTwo[2];
-
             //figure out how many pixels scroll for every number change
-            console.log(differenceBetweenR);
             const distanceOneDifference = Math.floor(scrollDistance / differenceBetweenR);
             const distanceTwoDifference = Math.floor(scrollDistance / differenceBetweenG);
             const distanceThreeDifference = Math.floor(scrollDistance / differenceBetweenB);
-
             //final value worked out by the original number + the total scroll position / how many pixels per colour change(math .ceil so always a full number)
-            console.log('difference', currentScroll / distanceOneDifference);
             const currentValueR = (colTwo[0] - Math.floor( (currentScroll - scrollDistance) / distanceOneDifference) );
             const currentValueG = (colTwo[1] + Math.floor( (currentScroll - scrollDistance) / distanceTwoDifference) );
             const currentValueB = (colTwo[2] + Math.floor( (currentScroll - scrollDistance) / distanceThreeDifference) );
@@ -97,10 +88,12 @@ class Main extends Component {
     componentDidMount() {
         window.addEventListener('scroll', this.scrollEventWrap.bind(this));
     }
-
     render() {
         return (
             <div className="wrapper">
+                <div className="browser-notice">
+                    Your browser does not support grid.
+                </div>
                 {
                     (this.props.loading) ?
                         <Loader />

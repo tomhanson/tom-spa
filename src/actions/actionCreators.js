@@ -1,12 +1,20 @@
 
-export function shouldFetchPosts() {
+export function shouldFetchProjects(...payload) {
     return {
-        type: 'FETCH_POSTS'
+        type: 'SHOULD_FETCH_PROJECTS',
+        payload
     }
 }
-export function shouldFetchCurrentPost(postID) {
+export function shouldFetchPage(slug, toggleLoader=false) {
     return {
-        type: 'SHOULD_FETCH_POST',
+        type: 'SHOULD_FETCH_PAGE',
+        slug,
+        toggleLoader
+    }
+}
+export function shouldFetchCurrentProject(postID) {
+    return {
+        type: 'SHOULD_FETCH_PROJECT',
         postID
     }
 }
@@ -38,9 +46,9 @@ export function toggleNav() {
     }
 }
 
-export function shouldFetchData(i) {
+export function shouldFetchData(...payload) {
     return  {
         type: 'FETCH_DATA',
-        i
+        payload
     }
 }

@@ -6,16 +6,16 @@ import {browserHistory} from 'react-router';
 // import axiosMiddleware from 'redux-axios-middleware';
 
 import createSagaMiddleware from 'redux-saga'
-import rootSaga from './sagas';
+import rootSaga from './Sagas';
 
 //root reducer
 
 import rootReducer from '../reducers/index';
 
 const defaultState = {
-    posts: [],
+    projects: [],
     loading: true,
-    pages: [],
+    pages: {},
     navigation: {
         items: [],
         open: false

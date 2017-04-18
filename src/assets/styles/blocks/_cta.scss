@@ -1,0 +1,6 @@
+.cta {
+  @include addREM(padding, 50, 0);
+}
+.contact {
+  min-height: 50vh;
+}

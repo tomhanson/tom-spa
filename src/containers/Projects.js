@@ -1,57 +1,99 @@
 import React, { Component } from 'react';
+import { ModalManager } from 'react-dynamic-modal';
+import Modals from '../components/ModalPrimary';
+import ContactInfo from '../components/ContactInfo';
+import Logo from '../components/Logo';
 
-import img from '../assets/img/cover.jpg';
+import {
+    withGoogleMap,
+    GoogleMap,
+} from 'react-google-maps';
 
-import Header from './Header';
+import Masthead from './Masthead';
+import Tile from '../components/tiles/Tile';
+import TileHeader from '../components/tiles/TileHeader';
+import TileFooter from '../components/tiles/TileFooter';
+
+
+const StyledMapExampleGoogleMap = withGoogleMap(props => (
+    <GoogleMap
+        defaultZoom={14}
+        defaultCenter={props.center}
+        defaultOptions={{ scrollwheel: false, styles: {} }}
+    >
+    </GoogleMap>
+));
 
 class Projects extends Component {
     constructor(props) {
         super(props);
+        this.renderHTML = this.renderHTML.bind(this);
+        this.state = {
+            key: 'AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo',
+            loading: true,
+            center: {lat: 52.0798155, lng: -0.7530945},
+            zoom: 10,
+            scroll: false
+        };
     }
-    getPostData(item) {
-        if(item.slug === this.props.params.postID) {
-            return item;
-        }
+    openModal(project, index){
+        document.querySelector('html').classList.add('modal-open');
+        ModalManager.open(<Modals index={ index } project={ project } projects={ this.props.projects } />);
+        history.pushState(null, null, `/projects/${project.slug}`);
     }
     componentWillMount() {
-        this.props.shouldFetchCurrentPost(this.props.params.postID);
-    }
-    componentDidMount(){
-
+        this.props.shouldFetchProjects('projects', '?per_page=8', false, '&orderby=menu_order&order=asc');
     }
     componentWillUnmount() {
         this.props.toggleLoader();
     }
+    renderHTML(content) {
+        return {__html: content};
+    }
     render() {
-        if(!this.props.loading) {
-            return (
-                <section>
+        return (
+            <main>
+                <Masthead toggleNav={ this.props.toggleNav }  globalData={ this.props.globalData } navigation={ this.props.navigation } />
+                <section className="layout__primary layout__primary--complex | projects tiles">
+                    <TileHeader />
                     {
-                        this.props.posts.filter(this.getPostData.bind(this)).map( (item, i) => {
-                            let featImg;
-                            if (item.better_featured_image.media_details.sizes.large) {
-                                featImg = item.better_featured_image.media_details.sizes.large.source_url;
-                            } else {
-                                featImg = img;
-                            }
+                        this.props.projects.map((item, i) => {
                             return (
-                                <section key={ i }>
-                                    <Header toggleNav={ this.props.toggleNav }
-                                            navigation={ this.props.navigation }
-                                            featuredImage={ featImg }
-                                            title={ item.title.rendered }
-                                            headline={ item.acf.headline } />
-                                    <article dangerouslySetInnerHTML={{__html: item.content.rendered }} />
-                                </section>
+                                <Tile key={ i } item={ item } i={ i } modal={this.openModal.bind(this) } />
                             )
                         })
                     }
+                    <TileFooter />
                 </section>
-            );
-        } else {
-            return null;
+                <footer className="layout__secondary | contact">
+                    <div className="desk-half | map">
+                        <StyledMapExampleGoogleMap
+                            containerElement={
+                                <div className="full-height" />
+                            }
+                            mapElement={
+                                <div className="full-height" />
+                            }
+                            //eslint-disable-next-line
+                            center={new google.maps.LatLng(52.0798155, -0.7530945)}
+                        />
+                    </div>
+                    <div className="layout__secondary | desk-half | padded-border__large">
+                        <div className="layout__secondary | tab-half | flex-center | padded-border__large">
+                            <Logo type="secondary" />
+                        </div>
+                        <div className="layout__secondary | tab-half | flex-center | padded-border__large">
+                            <ContactInfo color="primary-color" contactInfo={ this.props.globalData } />
+                        </div>
+                        <div className="mob-full | self-aligned-flex-end text-center">
+                            copyright
+                        </div>
+                    </div>
+                </footer>
 
-        }
+            </main>
+        );
+
     }
 }
 export default Projects;

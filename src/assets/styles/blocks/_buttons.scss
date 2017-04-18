@@ -1,0 +1,46 @@
+.btn {
+  appearance: none;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 2px #ffffff;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: 600;
+  height: 3.5em;
+  letter-spacing: 0.25em;
+  line-height: 3.5em;
+  padding: 0 1.75em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  &:hover {
+    box-shadow: inset 0 0 0 2px $primary-color-full;
+    color: $primary-color-full;
+  }
+}
+.btn--primary {
+
+}
+
+.btn-direction {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  @include addREM(padding, 10);
+  z-index: 10;
+}
+.btn__prev {
+  left: 0;
+}
+.btn__next {
+  right: 0;
+}

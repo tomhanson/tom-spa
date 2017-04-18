@@ -2,17 +2,19 @@ header {
   background-size: cover;
 }
 .header__banner {
-  background-color: $contrast;
   display: flex;
   @include addREM(padding, 40);
   min-height: 100%;
 }
 .header__sidebar {
-  background-color: lighten($contrast, 10%);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100%;
+}
+
+.masthead {
+  min-height: 75vh;
 }
 //individual header
 //header {

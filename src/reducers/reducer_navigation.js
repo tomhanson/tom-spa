@@ -19,7 +19,6 @@ function navigation(state=[], action) {
             });
 
         case 'TOGGLE_NAVIGATION':
-            console.log(action);
             return Object.assign({}, state, {
                open : !state.open
             });
