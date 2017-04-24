@@ -1,24 +1,25 @@
 @import 'global/variables';
 @import 'global/mixins';
-@import 'blocks/reset';
+@import 'components/reset';
 @import 'global/font-awesome/fontAwesome';
 @import 'global/helpers';
 @import 'global/elements';
 @import 'global/footer';
-@import 'blocks/icons';
-@import 'blocks/header';
-@import 'blocks/logo';
-@import 'blocks/navigation';
-@import 'blocks/hamburger-icon';
-@import 'blocks/modal';
-@import 'blocks/projects';
-@import 'blocks/about';
-@import 'blocks/tiles';
-@import 'blocks/cta';
-@import 'blocks/loader';
+@import 'components/copyright';
+@import 'components/icons';
+@import 'components/header';
+@import 'components/logo';
+@import 'components/navigation';
+@import 'components/hamburger-icon';
+@import 'components/modal';
+@import 'components/projects';
+@import 'components/about';
+@import 'components/tiles';
+@import 'components/cta';
+@import 'components/loader';
 @import 'global/layout';
-@import 'blocks/buttons';
+@import 'components/buttons';
 
 
 
-@import 'blocks/map';
+@import 'components/map';

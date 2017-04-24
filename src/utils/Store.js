@@ -1,9 +1,6 @@
 import {createStore, applyMiddleware} from 'redux'
-import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux';
+// import {routerMiddleware, syncHistoryWithStore} from 'react-router-redux';
 import {browserHistory} from 'react-router';
-
-// import axios from 'axios';
-// import axiosMiddleware from 'redux-axios-middleware';
 
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './Sagas';
@@ -24,11 +21,12 @@ const defaultState = {
 };
 
 //router middleware
-const reduxMiddleware = routerMiddleware(browserHistory);
+// const reduxMiddleware = routerMiddleware(browserHistory);
 
 const sagaMiddleware = createSagaMiddleware();
 
-const middleware = [reduxMiddleware, sagaMiddleware];
+const middleware = [sagaMiddleware];
+// const middleware = [reduxMiddleware, sagaMiddleware];
 
 const store = createStore(
     rootReducer,
@@ -38,7 +36,8 @@ const store = createStore(
 
 sagaMiddleware.run(rootSaga);
 
-export const history = syncHistoryWithStore(browserHistory, store);
+export const history = browserHistory;
+// export const history = syncHistoryWithStore(browserHistory, store);
 
 
 export default store;

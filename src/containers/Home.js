@@ -33,7 +33,8 @@ class Home extends Component {
             loading: true,
             center: {lat: 52.0798155, lng: -0.7530945},
             zoom: 10,
-            scroll: false
+            scroll: false,
+            date: new Date().getFullYear()
         };
     }
     openModal(project, index){
@@ -100,7 +101,7 @@ class Home extends Component {
                             <ContactInfo color="primary-color" contactInfo={ this.props.globalData } />
                         </div>
                         <div className="mob-full | self-aligned-flex-end text-center">
-                            <p>copyright Tom Hanson **add the date dynamiclly here**&copy;</p>
+                            <p>Tom Hanson { this.state.date } <span className="copy">&copy;</span></p>
                         </div>
                     </div>
                 </footer>

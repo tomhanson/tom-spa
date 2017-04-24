@@ -27,14 +27,15 @@ const StyledMapExampleGoogleMap = withGoogleMap(props => (
 class Projects extends Component {
     constructor(props) {
         super(props);
-        this.renderHTML = this.renderHTML.bind(this);
         this.state = {
             key: 'AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo',
             loading: true,
             center: {lat: 52.0798155, lng: -0.7530945},
             zoom: 10,
-            scroll: false
+            scroll: false,
+            date: new Date().getFullYear()
         };
+
     }
     openModal(project, index){
         document.querySelector('html').classList.add('modal-open');
@@ -86,7 +87,7 @@ class Projects extends Component {
                             <ContactInfo color="primary-color" contactInfo={ this.props.globalData } />
                         </div>
                         <div className="mob-full | self-aligned-flex-end text-center">
-                            copyright
+                            <p>copyright Tom Hanson { this.state.date } <span className="copy">&copy;</span></p>
                         </div>
                     </div>
                 </footer>

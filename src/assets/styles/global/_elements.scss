@@ -39,7 +39,7 @@ h5 {
   font-size: calc(1rem + 1vw);
   line-height: calc(1.6rem + 1vw);
 }
-p {
+p, li {
   font-weight: 100;
   font-size: calc(0.1rem + 1vw);
   line-height: calc(0.6rem + 1vw);
@@ -64,25 +64,25 @@ a {
   }
 }
 @media(max-width: 1500px) {
-  p {
+  p, li {
     font-size: calc(0.2rem + 1vw);
     line-height: calc(0.7rem + 1vw);
   }
 }
 @media(max-width: 1200px) {
-  p {
+  p, li {
     font-size: calc(0.3rem + 1vw);
     line-height: calc(0.8rem + 1vw);
   }
 }
 @media(max-width: 767px) {
-  p {
+  p, li {
     font-size: calc(0.2rem + 3vw);
     line-height: calc(0.7rem + 3vw);
   }
 }
 @media(max-width: 450px) {
-  p {
+  p, li {
     font-size: calc(0.2rem + 4vw);
     line-height: calc(0.7rem + 4vw);
   }

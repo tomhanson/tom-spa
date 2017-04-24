@@ -29,8 +29,6 @@
   }
   li {
     display: inline-block;
-    font-size: calc(0.1rem + 1vw);
-    line-height: calc(0.6rem + 1vw);
     a {
       @include addREM(padding, 5);
     }

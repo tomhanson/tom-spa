@@ -41,9 +41,24 @@ nav.sitewide {
 }
 @media(max-width: 767px) {
   nav.sitewide {
-    li {
-      a {
-        @include addREM(padding, 20, 10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ul {
+      top: -350px;
+      li {
+        width: 100%;
+        a {
+          @include addREM(padding, 20, 10);
+          line-height: 1;
+        }
+      }
+    }
+    &.nav-open {
+      border-width: 400px;
+      ul {
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
   }

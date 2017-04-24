@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Logo = (props) => {
     return (
@@ -68,11 +69,14 @@ const Logo = (props) => {
                 {/*<circle className="st1" cx="371.5" cy="164.5" r="15"/>*/}
             {/*</g>*/}
         {/*</svg>*/}
-            <pre className={ `logo logo__${ props.type }` }>
-                &lt;Developer&gt;{'\n'}
+            <Link to="/">
+                <pre className={ `logo logo__${ props.type }` }>
+                    &lt;Developer&gt;{'\n'}
                     &nbsp;&nbsp;Tom Hanson{'\n'}
-                &lt;/Developer&gt;
-            </pre>
+                    &lt;/Developer&gt;
+                </pre>
+            </Link>
+
 
 
         </span>
