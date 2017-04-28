@@ -1,0 +1,49 @@
+.project-tile__info {
+  z-index: 3;
+  position: relative;
+}
+.project-tile__title {
+  @include addREM(margin-bottom, 10);
+  color: $second-font-color;
+}
+.project-tile__headline {
+  @include addREM(margin-bottom, 10);
+  color: $second-font-color;
+  max-width: 75%;
+}
+.project-tile__button {
+  cursor: pointer;
+  color: $second-font-color;
+  display: flex;
+  align-items: center;
+}
+.project-tile__icon {
+  @include addREM(margin-right, 5);
+  line-height: 16px;
+  display: inline-block;
+}
+.project__header {
+  min-height: 40vh;
+  position: relative;
+}
+.project__headline {
+  position: relative;
+  z-index: 10;
+}
+.project__brief {
+  @include addREM(padding, 60, 40);
+}
+.project__aside {
+  @include addREM(padding, 40);
+}
+.project {
+  .project__headline {
+    @include addREM(padding, 60, 70);
+  }
+  .project__brief {
+    @include addREM(padding, 60, 70);
+  }
+  .project__aside {
+    @include addREM(padding, 40, 70);
+  }
+}

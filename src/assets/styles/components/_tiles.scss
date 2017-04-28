@@ -1,0 +1,221 @@
+//if supports grid it doesnt need the specific spans - test for that with @supports
+//this is the media query for bg imgs
+
+//@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+//only screen and (-o-min-device-pixel-ratio: 3/2),
+//only screen and (min--moz-device-pixel-ratio: 1.5),
+//only screen and (min-device-pixel-ratio: 1.5) {
+//  .item {background-image:url(images/icon-news@2x.png);}
+//}
+
+.tiles {
+  article {
+    display: flex;
+    @include addREM(padding, 40);
+    //background-size: 40%;
+    //background-repeat: no-repeat;
+    //background-position: right bottom;
+    cursor: pointer;
+  }
+}
+.tiles__header {
+  background-color: $tertiary-color-full;
+  display: flex;
+  @include addREM(padding, 40);
+  text-transform: uppercase;
+}
+.tiles__footer {
+  background-color: $tertiary-color-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include addREM(padding, 20);
+}
+@media(max-width: 767px) {
+  .tiles__header {
+    justify-content: flex-start;
+    @include addREM(padding, 20);
+  }
+  .tiles article {
+    @include addREM(padding, 20);
+  }
+}
+.tiles__item {
+  @include addREM(padding, 20);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 1;
+    transition: 0.4s opacity;
+  }
+  &:hover {
+    &:before {
+      opacity: 0;
+    }
+  }
+}
+.test {
+  position: relative;
+  z-index: 99;
+}
+.color-bg {
+  position: relative;
+  z-index: 2;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 1;
+    transition: 0.4s opacity;
+  }
+}
+.tile-0 {
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 2;
+}
+.tile-1 {
+  grid-column: 4 / span 3;
+  grid-row:  1 / span 2;
+}
+.color-bg-1 {
+  &:before {
+    background-color: $eigth-color;
+  }
+}
+.tile-2 {
+  grid-column: 7 / span 3;
+  grid-row: 1 / span 1;
+}
+.color-bg-2 {
+  &:before {
+    background-color: $sixth-color;
+  }
+}
+.tile-3 {
+  grid-column: 7 / span 3;
+  grid-row: 2 / span 2;
+}
+.color-bg-3 {
+  &:before {
+    background-color: $fourth-color;
+  }
+}
+.tile-4 {
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 2;
+}
+.color-bg-4 {
+  &:before {
+    background-color: $primary-color;
+  }
+}
+.tile-5 {
+  grid-column: 3 / span 4;
+  grid-row: 3 / span 2;
+}
+.color-bg-5 {
+  &:before {
+    background-color: $fifth-color;
+  }
+}
+.tile-6 {
+  grid-column: 7 / span 3;
+  grid-row: 4 / span 1;
+}
+.color-bg-6 {
+  &:before {
+    background-color: $seventh-color;
+  }
+}
+.tile-7 {
+  grid-column: 1 / span 4;
+  grid-row: 5 / span 2;
+}
+.color-bg-7 {
+  &:before {
+    background-color: $tertiary-color;
+  }
+}
+.tile-8 {
+  grid-column: 5 / span 2;
+  grid-row: 5 / span 2;
+}
+.color-bg-8 {
+  &:before {
+    background-color: $sixth-color;
+  }
+}
+.tile-9 {
+  grid-column: 7 / span 3;
+  grid-row: 5 / span 2;
+}
+@media(max-width: 1050px) {
+  .tile-1 {
+    grid-column: 7 / span 3;
+    grid-row: 1 / span 2;
+  }
+  .tile-2 {
+    grid-column: 4 / span 3;
+    grid-row: 1 / span 2;
+  }
+  .tile-3 {
+    grid-column: 1 / span 3;
+    grid-row: 3 / span 2;
+    background-color: $tile-color-tertiary;
+  }
+  .tile-4 {
+    grid-column: 4 / span 3;
+    grid-row: 3 / span 2;
+    background-color: $tile-color-fourth;
+  }
+  .tile-5 {
+    grid-column: 7 / span 3;
+    grid-row: 3 / span 2;
+    background-color: $tile-color-fifth;
+  }
+  .tile-6 {
+    grid-column: 1 / span 3;
+    grid-row: 5 / span 2;
+    background-color: $tile-color-primary;
+  }
+  .tile-7 {
+    grid-column: 4 / span 3;
+    grid-row: 5 / span 2;
+    background-color: $tile-color-secondary;
+  }
+  .tile-8 {
+    grid-column: 7 / span 3;
+    grid-row: 5 / span 2;
+    background-color: $tile-color-primary;
+  }
+  .tile-9 {
+    grid-column: 1 / span 9;
+    grid-row: 7 / span 2;
+  }
+}
+@media( max-width: 767px ) {
+  .tiles__header{
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .tiles__item {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .tiles__footer {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

@@ -1,0 +1,98 @@
+//colours
+.primary-color {
+  color: $primary-font-color;
+}
+.secondary-color {
+  color: $second-font-color;
+}
+.primary-bg {
+  background-color: $secondary-color-full;
+}
+//dark bg contrasts - add footer on the end so it always follows suit
+.contrast-bg {
+  background-color: $contrast;
+  + footer {
+    background-color: lighten($contrast, 10%);
+  }
+}
+.contrast-bg--lighten {
+  background-color: lighten($contrast, 10%);
+  + footer {
+    background-color: $contrast;
+  }
+}
+//widths/heights/positioning
+.full-height {
+  height: 100%;
+}
+.regular-font-weight {
+  font-weight: 400;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+//flexbox helpers
+.self-aligned-flex-end {
+  align-self: flex-end;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.align-center {
+  align-items: center;
+}
+//manual order for flex/grid items
+@media(max-width: 1050px) {
+  .manual-order-high--tablet {
+    order: 5;
+  }
+  .manual-order-low--tablet {
+    order: 0;
+  }
+}
+//margin/padding helpers
+.padded-border__large {
+  @include addREM(padding, 40);
+}
+@media(max-width: 991px) {
+  .padded-border__large {
+    @include addREM(padding, 20);
+  }
+}
+@media(max-width: 1050px) {
+  .full-width-img {
+    padding: 0;
+  }
+}
+
+//force underlines with 2 colour variations
+.underlined {
+  border-bottom: 2px solid $second-font-color;
+  display: inline-block;
+  @include addREM(padding, 0, 30, 10, 0);
+  @include addREM(margin-bottom, 10);
+}
+.underlined--dark {
+  border-color: $primary-font-color;
+}
+//browser notice
+.browser-notice {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 30px;
+  z-index: 999;
+}
+@supports (display: grid) {
+  .browser-notice {
+    display: none !important;
+  }
+}
