@@ -44,6 +44,15 @@ class Modals extends Component {
         ModalManager.close();
         history.pushState(null, null, `/`)
     }
+    componentDidMount() {
+        document.addEventListener('keydown', (e) => {
+            if(e.keyCode === 37) {
+                this.previous(this.state.current);
+            } else if(e.keyCode === 39) {
+                this.next(this.state.current);
+            }
+        })
+    }
     render() {
         const styles = {
             overlay: {

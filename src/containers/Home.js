@@ -5,6 +5,8 @@ import Modals from '../components/ModalPrimary';
 import ContactInfo from '../components/ContactInfo';
 import Logo from '../components/Logo';
 
+import Footer from '../components/Footer';
+
 import {
     withGoogleMap,
     GoogleMap,
@@ -29,12 +31,7 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            key: 'AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo',
             loading: true,
-            center: {lat: 52.0798155, lng: -0.7530945},
-            zoom: 10,
-            scroll: false,
-            date: new Date().getFullYear()
         };
     }
     openModal(project, index){
@@ -76,7 +73,7 @@ class Home extends Component {
                                     <picture>
                                         <source media="(max-width: 600px)" srcSet={ `${ this.props.pages.about.better_featured_image.media_details.sizes.medium_large.source_url }, ${ this.props.pages.about.better_featured_image.media_details.sizes.large.source_url } 2x` }/>
                                         <source srcSet={ `${this.props.pages.about.better_featured_image.media_details.sizes.large.source_url }, ${this.props.pages.about.better_featured_image.source_url } 2x` }/>
-                                            <img src={ this.props.pages.about.better_featured_image.source_url } alt=""/>
+                                            <img src={ this.props.pages.about.better_featured_image.source_url } alt="Me" />
                                     </picture>
                                 </div>
                              </div>
@@ -84,28 +81,6 @@ class Home extends Component {
                             <p>Loading</p>
                     }
                 </section>
-                <footer className="layout__secondary | contact">
-                    <div className="desk-half | map">
-                        <StyledMapExampleGoogleMap
-                            containerElement={ <div className="full-height" /> }
-                            mapElement={ <div className="full-height" /> }
-                            //eslint-disable-next-line
-                            center={new google.maps.LatLng(52.0798155, -0.7530945)}
-                        />
-                    </div>
-                    <div className="layout__secondary | desk-half | padded-border__large">
-                        <div className="layout__secondary | tab-half | flex-center | padded-border__large">
-                            <Logo type="secondary" />
-                        </div>
-                        <div className="layout__secondary | tab-half | flex-center | padded-border__large">
-                            <ContactInfo color="primary-color" contactInfo={ this.props.globalData } />
-                        </div>
-                        <div className="mob-full | self-aligned-flex-end text-center">
-                            <p>Tom Hanson { this.state.date } <span className="copy">&copy;</span></p>
-                        </div>
-                    </div>
-                </footer>
-
             </main>
         );
 

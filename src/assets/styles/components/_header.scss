@@ -26,7 +26,17 @@ header {
     max-width: 800px;
     @include addREM(padding-top, 10);
     h5 {
-      @include addREM(margin-right, 15);
+      @include addREM(margin, 0, 15, 0, 0);
+    }
+  }
+}
+@media(max-width: 767px) {
+  .masthead__title {
+    .masthead__block {
+      h5 {
+        @include addREM(margin, 0, 15, 15, 0);
+        width: 100%;
+      }
     }
   }
 }

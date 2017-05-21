@@ -2,7 +2,8 @@ import { takeEvery, call, put, select } from 'redux-saga/effects';
 import axios from 'axios';
 
 //1. worker saga
-const BASEURL = 'http://tom.dev/wp-json';
+// const BASEURL = 'http://tom.dev/wp-json';
+const BASEURL = 'https:/admin.tom-hanson.co.uk/wp-json';
 
 const OPTIONS = `${BASEURL}/acf/v2/options`;
 

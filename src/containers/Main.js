@@ -5,6 +5,7 @@ import Loader from '../components/Loader';
 import Navigation from '../components/navigation/Navigation';
 import Footer from './Footer';
 
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 class Main extends Component {
     componentWillMount() {
@@ -79,24 +80,29 @@ class Main extends Component {
             })
         }
     }
-
     scrollEventWrap() {
         this.navScrolled();
         this.updateBG();
     }
-
     componentDidMount() {
         window.addEventListener('scroll', this.scrollEventWrap.bind(this));
     }
     render() {
         return (
-            <div className="wrapper">
+            <div>
                 <div className="browser-notice">
                     Your browser does not support grid.
                 </div>
                 {
                     (this.props.loading) ?
-                        <Loader />
+                        <div>
+                            <CSSTransitionGroup
+                                transitionName="example"
+                                transitionEnterTimeout={500}
+                                transitionLeaveTimeout={300}>
+                                <Loader />
+                            </CSSTransitionGroup>
+                        </div>
                         :
                         null
                 }
@@ -104,7 +110,7 @@ class Main extends Component {
                 <div className="wrapper">
                     { React.cloneElement(this.props.children, this.props, {key: this.props.location.pathname}) }
                 </div>
-                <Footer />
+                <Footer globalData={ this.props.globalData } />
             </div>
         )
     }

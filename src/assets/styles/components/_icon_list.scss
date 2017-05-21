@@ -1,0 +1,22 @@
+.icon-list__content {
+  @include addREM(padding, 0, 40);
+}
+@media(max-width: 1050px) {
+  .icon-list__content {
+    @include addREM(margin-bottom, 20);
+  }
+}
+@media(max-width: 767px) {
+  .icon-list__content {
+    @include addREM(padding, 0, 20);
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.icon-list__icon {
+  @include font-size(70, 70);
+  @include addREM(margin-bottom, 10);
+  width: 100%;
+
+}

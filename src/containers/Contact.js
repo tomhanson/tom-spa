@@ -32,7 +32,6 @@ class Contact extends Component {
         return (
             <div>
                 <Masthead toggleNav={ this.props.toggleNav }  globalData={ this.props.globalData } navigation={ this.props.navigation } />
-                hello world - contact
             </div>
         );
     }

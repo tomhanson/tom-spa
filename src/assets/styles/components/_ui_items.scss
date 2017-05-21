@@ -1,0 +1,8 @@
+.ui__space {
+  @include addREM(padding, 40);
+}
+@media(max-width: 767px) {
+  .ui__space {
+    @include addREM(padding, 20, 20, 0);
+  }
+}

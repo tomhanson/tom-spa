@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import ContactInfo from '../components/ContactInfo';
-import Logo from '../components/Logo';
+import ContactInfo from './ContactInfo';
+import Logo from './Logo';
 
 import {
     withGoogleMap,
@@ -40,8 +40,8 @@ class Footer extends Component {
                         center={new google.maps.LatLng(52.0798155, -0.7530945)}
                     />
                 </div>
-                <div className="layout__secondary | desk-half | padded-border__large">
-                    <div className="layout__secondary | tab-half desk-half | flex-center | padded-border__large">
+                <div className="layout__secondary | desk-half desk-half | padded-border__large">
+                    <div className="layout__secondary | tab-half | flex-center | padded-border__large">
                         <Logo type="secondary" />
                     </div>
                     <div className="layout__secondary | tab-half desk-half | flex-center | padded-border__large">

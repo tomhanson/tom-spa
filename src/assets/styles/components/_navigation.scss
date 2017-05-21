@@ -38,7 +38,7 @@ nav.sitewide {
       top: 0px;
     }
     + .wrapper {
-      transform: scale(0.96);
+      transform: scale(0.97);
       transition: 0.3s transform;
     }
   }
@@ -53,10 +53,12 @@ nav.sitewide {
     justify-content: center;
     ul {
       top: -350px;
+      opacity: 0;
       li {
         width: 100%;
         a {
-          @include addREM(padding, 20, 10);
+          @include addREM(padding, 10);
+          font-size: calc(20px + 1vw);
           line-height: 1;
         }
       }
@@ -66,7 +68,18 @@ nav.sitewide {
       ul {
         top: 50%;
         transform: translateY(-50%);
+        transition: none;
+        //opacity: 1;
+        animation-name: fadeNav;
+        animation-duration: 0.2s;
+        animation-delay: 0.2s;
+        animation-fill-mode: forwards;
       }
     }
   }
+}
+
+@keyframes fadeNav {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
