@@ -13,7 +13,7 @@ const ContactInfo = (props) => {
         )
     } else {
         return (
-            <span>&nbsp;</span>
+            <span />
         )
     }
 };

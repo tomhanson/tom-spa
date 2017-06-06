@@ -43,7 +43,7 @@ nav.sitewide {
     }
   }
 }
-.wrapper {
+.wrapper, footer {
   transition: 0.3s transform;
 }
 @media(max-width: 767px) {
@@ -51,7 +51,9 @@ nav.sitewide {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: border-width 0.3s, background-color 0.3s ease 0.3s;
     ul {
+      background-color: $secondary-color-full;
       top: -350px;
       opacity: 0;
       li {
@@ -65,6 +67,8 @@ nav.sitewide {
     }
     &.nav-open {
       border-width: 400px;
+      background-color: #EBB241;
+      transition: border-width 0.3s, background-color 0.3s;
       ul {
         top: 50%;
         transform: translateY(-50%);

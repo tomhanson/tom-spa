@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
+import Logo from '../Logo';
 
 import Hamburger from './Hamburger';
 
@@ -10,7 +11,11 @@ class Navigation extends Component {
     render() {
         return (
             <nav role="navigation" className={ (this.props.navigation.open) ? "sitewide nav-open" : "sitewide" } onClick={ this.toggleNav.bind(this) }>
-                <Hamburger navLoaded={ this.props.navigation.items.length } toggleNav={ this.props.toggleNav.bind(this) } />
+                <div className={ (this.props.navigation.items.length) ? "loaded | layout__secondary | justify-space-between | scrolled__overlay" : "loading | layout__secondary | justify-space-between | scrolled__overlay" }>
+                    <Logo type="primary" />
+                    <Hamburger toggleNav={ this.props.toggleNav.bind(this) } />
+                </div>
+
                 <ul className="">
                     {
                         (this.props.navigation.items.length) ?

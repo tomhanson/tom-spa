@@ -2,11 +2,7 @@ import React from 'react';
 
 const Hamburger = function (props) {
     return (
-        <div role="button" className={ (props.navLoaded) ? "loaded | hamburger" : "loading | hamburger" }>
-            {/*<span>&nbsp;</span>*/}
-            {/*<span>&nbsp;</span>*/}
-            {/*<span>&nbsp;</span>*/}
-            {/*<span>&nbsp;</span>*/}
+        <div role="button" className="hamburger">
             <svg version="1.1" id="Layer_1" x="0px" y="0px"
                  viewBox="0 0 743.5 440.4" style={{enableBackground: 'new 0 0 743.5 440.4'}}>
                 <path className="st0" d="M372.3,220.2"/>

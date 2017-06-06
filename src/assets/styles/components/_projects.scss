@@ -47,3 +47,29 @@
     @include addREM(padding, 40, 70);
   }
 }
+@media(max-width: 991px) {
+  .project {
+    .project__headline {
+      @include addREM(padding, 40);
+    }
+    .project__brief {
+      @include addREM(padding, 40);
+    }
+    .project__aside {
+      @include addREM(padding, 40);
+    }
+  }
+}
+@media(max-width: 767px) {
+  .project {
+    .project__headline {
+      @include addREM(padding, 20);
+    }
+    .project__brief {
+      @include addREM(padding, 20);
+    }
+    .project__aside {
+      @include addREM(padding, 20);
+    }
+  }
+}

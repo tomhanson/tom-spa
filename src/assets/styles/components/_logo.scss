@@ -37,11 +37,21 @@ $logoColor: $second-font-color;
 //  }
 //}
 .logo {
-  @include font-size(30, 26);
+  @include font-size(16, 14);
 }
 .logo__primary {
   color: $second-font-color;
+  @include addREM(padding, 20);
+  z-index: 999;
 }
 .logo__secondary {
   color: $primary-font-color;
+}
+.logo__display {
+  transition: 0.3s opacity;
+}
+.hide-logo {
+  .logo__display {
+    opacity: 0;
+  }
 }

@@ -7,7 +7,6 @@ function loading(state = [], action) {
         case 'FETCH_PROJECT_SUCCEEDED':
             return !state;
         case 'FETCH_PAGE_SUCCEEDED':
-            console.log('a', action);
             if(action.toggleLoader) return false;
             return state;
         default:

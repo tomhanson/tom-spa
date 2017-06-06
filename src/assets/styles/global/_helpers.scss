@@ -46,6 +46,12 @@
 .align-center {
   align-items: center;
 }
+.align-flex-end {
+  align-items: flex-end;
+}
+.justify-space-between {
+  justify-content: space-between;
+}
 //manual order for flex/grid items
 @media(max-width: 1050px) {
   .manual-order-high--tablet {
@@ -94,5 +100,24 @@
 @supports (display: grid) {
   .browser-notice {
     display: none !important;
+  }
+}
+
+//scrolling
+.scrolled__overlay {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transition: 0.5s transform;
+  will-change: transform;
+}
+.scrolled {
+  background-color: rgba(#000000, 0.5);
+  transition: 0.3s background-color;
+}
+.nav-open {
+  .scrolled {
+    background-color: transparent;
   }
 }

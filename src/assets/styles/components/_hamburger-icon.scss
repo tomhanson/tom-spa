@@ -1,64 +1,17 @@
 .hamburger {
-  //@include addREM(padding, 18, 14, 18, 18);
-  //width: 92px;
-  //height: 62px;
   @include addREM(padding, 5);
   box-sizing: content-box;
   width: 100px;
   height: 70px;
-  position: fixed;
-  top: 0;
-  right: 0;
   transform: rotate(0deg);
   transition: .5s ease-in-out;
   cursor: pointer;
   z-index: 1;
-  &.scrolled {
-    background-color: rgba(#000000, 0.5);
-  }
-  //span {
-  //  display: block;
-  //  position: absolute;
-  //  height: 4px;
-  //  width: 60px;
-  //  background: $second-font-color;
-  //  border-radius: 9px;
-  //  opacity: 1;
-  //  left: 18px;
-  //  transform: rotate(0deg);
-  //  transition: .25s ease-in-out;
-  //  &:nth-child(1) {
-  //    top: 18px;
-  //  }
-  //  &:nth-child(2), &:nth-child(3) {
-  //    top: 29px;
-  //  }
-  //  &:nth-child(4) {
-  //    top: 40px;
-  //  }
-  //}
+
 }
 .nav-open {
   .hamburger {
     background-color: rgba(#000000, 0);
-    //span {
-    //  &:nth-child(1) {
-    //    top: 18px;
-    //    width: 0%;
-    //    left: 50%;
-    //  }
-    //  &:nth-child(2) {
-    //    transform: rotate(45deg);
-    //  }
-    //  &:nth-child(3) {
-    //    transform: rotate(-45deg);
-    //  }
-    //  &:nth-child(4) {
-    //    top: 18px;
-    //    width: 0%;
-    //    left: 50%;
-    //  }
-    //}
   }
 }
 
@@ -83,8 +36,6 @@ $bg-col: #ffffff;
 .st4{fill:none;stroke:$bg-col;stroke-linecap:round;stroke-linejoin:round;}
 .st5{fill:none;stroke:$bg-col;stroke-miterlimit:10;}
 .st6{fill:none;stroke:$bg-col;stroke-miterlimit:10;}
-
-
 
 .m {
   stroke-dasharray: 510px;
@@ -127,6 +78,7 @@ $bg-col: #ffffff;
     stroke-dashoffset: -20;
   }
 }
+
 .loading {
   transform: translateY(-100px);
 }
