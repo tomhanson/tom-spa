@@ -180,11 +180,14 @@
 }
 
 //change order for mobile
-.desk-two-thirds, .tab-two-thirds {
-  &.first {
-    order: 2;
+@media(max-width: 767px) {
+  .desk-two-thirds, .tab-two-thirds {
+    &.first {
+      order: 2;
+    }
   }
 }
+
 
 //constrain width wrappers
 

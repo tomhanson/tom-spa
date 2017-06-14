@@ -3413,9 +3413,9 @@ nav.sitewide {
       flex: 1 1 100%; }
     .layout__secondary .desk-quarter {
       flex: 1 1 25%; } }
-.desk-two-thirds.first, .tab-two-thirds.first {
-  order: 2; }
-
+@media (max-width: 767px) {
+  .desk-two-thirds.first, .tab-two-thirds.first {
+    order: 2; } }
 .constrained-to-500 {
   max-width: 500px;
   margin-left: auto;
