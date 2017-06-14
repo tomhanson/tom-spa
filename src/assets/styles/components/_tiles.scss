@@ -8,15 +8,13 @@
 //  .item {background-image:url(images/icon-news@2x.png);}
 //}
 
-.tiles {
-  article {
-    display: flex;
-    @include addREM(padding, 40);
-    //background-size: 40%;
-    //background-repeat: no-repeat;
-    //background-position: right bottom;
-    cursor: pointer;
-  }
+.tiles__item {
+  display: flex;
+  @include addREM(padding, 40);
+  //background-size: 40%;
+  //background-repeat: no-repeat;
+  //background-position: right bottom;
+  cursor: pointer;
 }
 .tiles__header {
   background-color: $tertiary-color-full;
@@ -36,7 +34,7 @@
     justify-content: flex-start;
     @include addREM(padding, 20);
   }
-  .tiles article {
+  .tiles__item {
     @include addREM(padding, 20);
   }
 }

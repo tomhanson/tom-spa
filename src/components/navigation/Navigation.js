@@ -10,38 +10,42 @@ class Navigation extends Component {
     }
     render() {
         return (
-            <nav role="navigation" className={ (this.props.navigation.open) ? "sitewide nav-open" : "sitewide" } onClick={ this.toggleNav.bind(this) }>
-                <div className={ (this.props.navigation.items.length) ? "loaded | layout__secondary | justify-space-between | scrolled__overlay" : "loading | layout__secondary | justify-space-between | scrolled__overlay" }>
-                    <Logo type="primary" />
-                    <Hamburger toggleNav={ this.props.toggleNav.bind(this) } />
-                </div>
+            <span>
+                <Logo type="primary" />
+                <nav role="navigation" className={ (this.props.navigation.open) ? "sitewide nav-open" : "sitewide" } onClick={ this.toggleNav.bind(this) }>
 
-                <ul className="">
-                    {
-                        (this.props.navigation.items.length) ?
-                            this.props.navigation.items.map((item, i) => {
+                    <div className={ (this.props.navigation.items.length) ? "loaded | layout__secondary | justify-flex-end | scrolled__overlay" : "loading | layout__secondary | justify-flex-end | scrolled__overlay" }>
+                        <Hamburger toggleNav={ this.props.toggleNav.bind(this) } />
+                    </div>
 
-                                return (
-                                    <li key={ i }>
-                                        {
-                                            (item.name === 'Home') ?
-                                                <Link to="/">{ item.name }</Link>
-                                                :
-                                                (item.name === 'Blog') ?
-                                                    <a href="http://www.learningjs.co.uk" target="_blank" title={ item.name }>{ item.name }</a>
+                    <ul className="">
+                        {
+                            (this.props.navigation.items.length) ?
+                                this.props.navigation.items.map((item, i) => {
+
+                                    return (
+                                        <li key={ i }>
+                                            {
+                                                (item.name === 'Home') ?
+                                                    <Link to="/">{ item.name }</Link>
                                                     :
-                                                    <Link to={ `/${item.slug}` }>{ item.name }</Link>
-                                        }
-                                    </li>
-                                )
+                                                    (item.name === 'Blog') ?
+                                                        <a href="http://www.learningjs.co.uk" target="_blank" title={ item.name }>{ item.name }</a>
+                                                        :
+                                                        <Link to={ `/${item.slug}` }>{ item.name }</Link>
+                                            }
+                                        </li>
+                                    )
 
-                            })
-                            :
-                            null
-                    }
+                                })
+                                :
+                                null
+                        }
 
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
+            </span>
+
 
         )
     }

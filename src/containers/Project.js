@@ -64,10 +64,10 @@ class Projects extends Component {
                             if (i % 2 === 0) {
                                 return (
                                     <article key={ i } className="layout__secondary | flex-center contrast-bg--lighten | project__article">
-                                        <figure className="desk-one-third | project__figure">
+                                        <figure className="tab-one-third first | project__figure">
                                             <img src={ article.image.sizes['square-lg'] } alt={ article.image.title }/>
                                         </figure>
-                                        <aside className="desk-two-thirds | project__aside">
+                                        <aside className="tab-two-thirds | project__aside">
                                             <div className="constrained-to-700" dangerouslySetInnerHTML={ renderHTML(article.content) } />
                                         </aside>
                                     </article>
@@ -76,10 +76,10 @@ class Projects extends Component {
                             } else {
                                 return(
                                     <article key={ i } className="layout__secondary | flex-center contrast-bg | project__article">
-                                        <aside className="desk-two-thirds | project__aside">
+                                        <aside className="tab-two-thirds first | project__aside">
                                             <div className="constrained-to-700" dangerouslySetInnerHTML={ renderHTML(article.content) } />
                                         </aside>
-                                        <figure className="desk-one-third | project__figure">
+                                        <figure className="tab-one-third | project__figure">
                                             <img src={ article.image.sizes['square-lg'] } alt={ article.image.title }/>
                                         </figure>
                                     </article>

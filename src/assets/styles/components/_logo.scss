@@ -42,7 +42,10 @@ $logoColor: $second-font-color;
 .logo__primary {
   color: $second-font-color;
   @include addREM(padding, 20);
-  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
 }
 .logo__secondary {
   color: $primary-font-color;

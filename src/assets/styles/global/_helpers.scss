@@ -52,6 +52,9 @@
 .justify-space-between {
   justify-content: space-between;
 }
+.justify-flex-end {
+  justify-content: flex-end;
+}
 //manual order for flex/grid items
 @media(max-width: 1050px) {
   .manual-order-high--tablet {
@@ -68,6 +71,12 @@
 @media(max-width: 991px) {
   .padded-border__large {
     @include addREM(padding, 20);
+  }
+}
+@media(max-width: 767px) {
+  .padded-border__large {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 @media(max-width: 1050px) {

@@ -31,6 +31,9 @@ header {
   }
 }
 @media(max-width: 767px) {
+  .header__banner {
+    @include addREM(padding-top, 80);
+  }
   .masthead__title {
     .masthead__block {
       h5 {

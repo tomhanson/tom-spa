@@ -33,9 +33,13 @@
   transform: translateY(-50%);
   cursor: pointer;
   background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
   @include addREM(padding, 10);
   z-index: 10;
+}
+@media(max-width: 767px) {
+  .btn-direction {
+    @include addREM(padding, 5);
+  }
 }
 .btn__prev {
   left: 0;
