@@ -9,7 +9,7 @@ import rootSaga from './Sagas';
 
 import rootReducer from '../reducers/index';
 
-const defaultState = {
+export const defaultState = {
     projects: [],
     loading: true,
     pages: {},
@@ -22,6 +22,13 @@ const defaultState = {
 
 //router middleware
 // const reduxMiddleware = routerMiddleware(browserHistory);
+
+
+// // Grab the state from a global variable injected into the server-generated HTML
+// const preloadedState = window.__PRELOADED_STATE__
+//
+// // Allow the passed state to be garbage-collected
+// delete window.__PRELOADED_STATE__;
 
 const sagaMiddleware = createSagaMiddleware();
 
