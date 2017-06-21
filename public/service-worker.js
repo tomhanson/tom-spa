@@ -14,7 +14,9 @@ if (navigator.serviceWorker) {
 
 const CACHE_VERSION = 'app-v1';
 const CACHE_FILES = [
-    '/',
+    '/index.html',
+    '/grid-polyfill.js',
+    'favicon.ico',
     'static/css/*',
     'static/js/*',
     'https://fonts.googleapis.com/css?family=Lato:100|Roboto+Condensed:300,400,700',
