@@ -18,14 +18,14 @@ const CACHE_FILES = [
     'static/css/*',
     'static/js/*',
     'https://fonts.googleapis.com/css?family=Lato:100|Roboto+Condensed:300,400,700',
-    'https://maps.googleapis.com/maps/api/js?key=AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo'
+    // 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo'
 ];
 
 self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(CACHE_VERSION)
             .then(function (cache) {
-                console.log('Opened cache');
+                console.log('Opened cache', CACHE_FILES);
                 return cache.addAll(CACHE_FILES);
             })
     );
