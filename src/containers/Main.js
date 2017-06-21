@@ -28,6 +28,7 @@ class Main extends Component {
     }
     componentDidMount() {
         window.addEventListener('scroll', this.scrollEventWrap.bind(this));
+
     }
     componentDidUpdate(prevProps, prevState) {
         if(prevProps.loading !== this.props.loading) {

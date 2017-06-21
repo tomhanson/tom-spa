@@ -1,17 +1,3 @@
-if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('./service-worker.js', {scope: './'})
-        .then(function (registration) {
-            console.log('success', registration);
-        })
-        .catch(function (e) {
-            console.error('failure', e);
-        })
-} else {
-    console.log('Service Worker is not supported in this browser.');
-}
-
-
-
 const CACHE_VERSION = 'app-v1';
 const CACHE_FILES = [
     '/',

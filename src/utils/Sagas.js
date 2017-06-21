@@ -1,7 +1,6 @@
 import { takeEvery, call, put, select } from 'redux-saga/effects';
 import axios from 'axios';
 
-//1. worker saga
 // const BASEURL = 'http://tom.dev/wp-json';
 const BASEURL = 'https://admin.tom-hanson.co.uk/wp-json';
 
@@ -11,9 +10,7 @@ const getProjects = state => state.projects;
 const getPages = state => state.pages;
 
 
-//function tpo make sure an array is only unique posts
-
-//pas it the first array
+//pass it the first array
 
 // function arrayUnique(array) {
 //     let a = array.concat();
@@ -26,44 +23,9 @@ const getPages = state => state.pages;
 //     return a;
 // }
 
-//use one function for all calls and conditionally choose which one.
-// export function *shouldFetchDataAsync(action) {
-//     try {
-//         //get my current data from the store
-//         const projects = yield select(getProjects);
-//         const pages = getPages;
-//         //destructure the two arrays passed from the action
-//         const { payload } = action;
-//         //multiple sagas
-//         let postData, pageData;
-//         if(projects.length <= 7) {
-//             postData = yield call(axios.get, `${BASEURL}/wp/v2/${payload[0][0]}${payload[0][1]}${payload[0][3]}`);
-//             yield put({
-//                 type: `FETCH_PROJECTS_SUCCEEDED`,
-//                 response: postData
-//             });
-//         } else {
-//             yield put({type: 'TOGGLE_LOADER'});
-//         }
-//         //send the data for the home page
-//         if(pages !== null && typeof pages === 'object') {
-//             pageData = yield call(axios.get, `${BASEURL}/wp/v2/${payload[1][0]}${payload[1][1]}${payload[1][3]}`);
-//         } else {
-//             pageData = pages;
-//         }
-//
-//         if(pages !== null && typeof pages === 'object') {
-//             yield put({
-//                 type: `FETCH_PAGES_SUCCEEDED`,
-//                 response: pageData
-//             });
-//         } else {
-//             yield put({type: 'TOGGLE_LOADER'});
-//         }
-//     } catch(e) {
-//         console.log('error in should fetch data async saga', e);
-//     }
-// }
+
+//1. worker sagas - these are doing the work when their action is triggered
+
 export function *shouldFetchDataAsync(action) {
     try {
         //get my current data from the store
@@ -72,6 +34,7 @@ export function *shouldFetchDataAsync(action) {
         const { payload } = action;
         //multiple sagas
         let requestData;
+        //check if a new api call is needed and if not just give the data back
         if(projects.length <= 7) {
             requestData = yield call(axios.get, `${BASEURL}/wp/v2/${payload[0]}${payload[1]}${payload[3]}`);
             yield put({
@@ -186,7 +149,8 @@ export function *fetchGlobalDataAsync(action) {
     }
 }
 
-//2. watcher saga
+//2. watcher functions
+//this will watch whichever action you tell it too and then trigger the corresponding function
 
 export function *watchShouldFetchProjects() {
     yield takeEvery('SHOULD_FETCH_PROJECTS', shouldFetchProjectsAsync)
