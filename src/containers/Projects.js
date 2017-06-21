@@ -12,7 +12,7 @@ class Projects extends Component {
     openModal(project, index){
         document.querySelector('html').classList.add('modal-open');
         ModalManager.open(<Modals index={ index } project={ project } projects={ this.props.projects } />);
-        history.pushState(null, null, `/projects/${project.slug}`);
+        window.history.pushState(null, null, `/projects/${project.slug}`);
     }
     componentWillMount() {
         this.props.shouldFetchProjects('projects', '?per_page=8', false, '&orderby=menu_order&order=asc');

@@ -14,12 +14,12 @@ class Modals extends Component {
 	}
 	previous(i) {
 		if (i === 0) {
-			history.pushState(null, null, `/projects/${this.props.projects[this.props.projects.length - 1].slug}`);
+			window.history.pushState(null, null, `/projects/${this.props.projects[this.props.projects.length - 1].slug}`);
 			this.setState({
 				current: this.props.projects.length - 1,
 			});
 		} else {
-			history.pushState(null, null, `/projects/${this.props.projects[i - 1].slug}`);
+            window.history.pushState(null, null, `/projects/${this.props.projects[i - 1].slug}`);
 			this.setState({
 				current: i - 1,
 			});
@@ -27,12 +27,12 @@ class Modals extends Component {
 	}
 	next(i) {
 		if (i >= this.props.projects.length - 1) {
-			history.pushState(null, null, `/projects/${this.props.projects[0].slug}`);
+            window.history.pushState(null, null, `/projects/${this.props.projects[0].slug}`);
 			this.setState({
 				current: 0,
 			});
 		} else {
-			history.pushState(null, null, `/projects/${this.props.projects[i + 1].slug}`);
+            window.history.pushState(null, null, `/projects/${this.props.projects[i + 1].slug}`);
 			this.setState({
 				current: i + 1,
 			});
@@ -41,7 +41,7 @@ class Modals extends Component {
 	toggleClose() {
 		document.querySelector('html').classList.remove('modal-open');
 		ModalManager.close();
-		history.pushState(null, null, `/`);
+        window.history.pushState(null, null, `/`);
 	}
 	componentDidMount() {
 		document.addEventListener('keydown', e => {

@@ -18,7 +18,7 @@ class Home extends Component {
     openModal(project, index){
         document.querySelector('html').classList.add('modal-open');
         ModalManager.open(<Modals index={ index } project={ project } projects={ this.props.projects } />);
-        history.pushState(null, null, `/projects/${project.slug}`);
+        window.history.pushState(null, null, `/projects/${project.slug}`);
     }
     updateBG() {
 
