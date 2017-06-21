@@ -2,30 +2,11 @@ import React, { Component } from 'react';
 import { ModalManager } from 'react-dynamic-modal';
 import renderHTML from '../utils/renderHTML';
 import Modals from '../components/ModalPrimary';
-import ContactInfo from '../components/ContactInfo';
-import Logo from '../components/Logo';
-
-import Footer from '../components/Footer';
-
-import {
-    withGoogleMap,
-    GoogleMap,
-} from 'react-google-maps';
 
 import Masthead from '../components/masthead/Masthead';
 import Tile from '../components/tiles/Tile';
 import TileHeader from '../components/tiles/TileHeader';
 import TileFooter from '../components/tiles/TileFooter';
-
-
-const StyledMapExampleGoogleMap = withGoogleMap(props => (
-    <GoogleMap
-        defaultZoom={14}
-        defaultCenter={props.center}
-        defaultOptions={{ scrollwheel: false, styles: {} }}
-    >
-    </GoogleMap>
-));
 
 class Home extends Component {
     constructor(props) {
@@ -120,6 +101,7 @@ class Home extends Component {
                     {
                         this.props.projects.map((item, i) => {
                             if(i < 9) return <Tile key={ i } item={ item } i={ i } modal={this.openModal.bind(this) } />;
+                            return null;
                         })
                     }
                     <TileFooter />

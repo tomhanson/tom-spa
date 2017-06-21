@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { ModalManager } from 'react-dynamic-modal';
 import Modals from '../components/ModalPrimary';
-import ContactInfo from '../components/ContactInfo';
-import Logo from '../components/Logo';
-
-import {
-    withGoogleMap,
-    GoogleMap,
-} from 'react-google-maps';
 
 import Masthead from '../components/masthead/Masthead';
 import Tile from '../components/tiles/Tile';
@@ -15,19 +8,7 @@ import TileHeader from '../components/tiles/TileHeader';
 import TileFooter from '../components/tiles/TileFooter';
 
 
-const StyledMapExampleGoogleMap = withGoogleMap(props => (
-    <GoogleMap
-        defaultZoom={14}
-        defaultCenter={props.center}
-        defaultOptions={{ scrollwheel: false, styles: {} }}
-    >
-    </GoogleMap>
-));
-
 class Projects extends Component {
-    constructor(props) {
-        super(props);
-    }
     openModal(project, index){
         document.querySelector('html').classList.add('modal-open');
         ModalManager.open(<Modals index={ index } project={ project } projects={ this.props.projects } />);

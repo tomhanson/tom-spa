@@ -15,16 +15,16 @@ const getPages = state => state.pages;
 
 //pas it the first array
 
-function arrayUnique(array) {
-    let a = array.concat();
-    for(let i=0; i<a.length; ++i) {
-        for(let j=i+1; j<a.length; ++j) {
-            if(a[i].id === a[j].id)
-                a.splice(j--, 1);
-        }
-    }
-    return a;
-}
+// function arrayUnique(array) {
+//     let a = array.concat();
+//     for(let i=0; i<a.length; ++i) {
+//         for(let j=i+1; j<a.length; ++j) {
+//             if(a[i].id === a[j].id)
+//                 a.splice(j--, 1);
+//         }
+//     }
+//     return a;
+// }
 
 //use one function for all calls and conditionally choose which one.
 // export function *shouldFetchDataAsync(action) {
@@ -126,6 +126,7 @@ export function *shouldFetchProjectAsync(action) {
     try {
         const projectData = projects.filter( project => {
             if(project.slug === action.postID) return project;
+            return null;
         });
         //check if the post slug I am requested is in the store already
         if(projectData.length !== 0 ) {

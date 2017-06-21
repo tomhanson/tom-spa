@@ -5,9 +5,6 @@ import renderHTML from '../utils/renderHTML';
 import Masthead from '../components/masthead/Masthead';
 
 class Page extends Component {
-    constructor(props) {
-        super(props);
-    }
     getPostData(item) {
         if(item.slug === this.props.params.postID) {
             return item;
