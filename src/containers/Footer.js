@@ -33,12 +33,20 @@ class Footer extends Component {
         return(
             <footer className="layout__secondary | contact">
                 <div className="desk-half | map">
-                    <StyledMapExampleGoogleMap
-                        containerElement={ <div className="full-height" /> }
-                        mapElement={ <div className="full-height" /> }
-                        //eslint-disable-next-line
-                        center={new google.maps.LatLng(52.0798155, -0.7530945)}
-                    />
+                    {
+                        (navigator.onLine) ?
+                            <StyledMapExampleGoogleMap
+                                containerElement={ <div className="full-height" /> }
+                                mapElement={ <div className="full-height" /> }
+                                //eslint-disable-next-line
+                                center={new google.maps.LatLng(52.0798155, -0.7530945)}
+                            />
+                            :
+                            <div>
+                                <h2>Sorry you are offline</h2>
+                            </div>
+                    }
+
                 </div>
                 <div className="layout__secondary | desk-half | padded-border__large">
                     <div className="layout__secondary | tab-half desk-half | flex-center | padded-border__large">
